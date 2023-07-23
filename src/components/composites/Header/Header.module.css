@@ -1,0 +1,30 @@
+.module {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  height: 72px;
+  padding: 10px 32px;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.list {
+  display: flex;
+  gap: 16px;
+}
+
+.link {
+  text-decoration: underline;
+
+  &:where(.active) {
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}

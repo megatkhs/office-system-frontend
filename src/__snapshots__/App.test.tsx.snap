@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`アプリが描画されること 1`] = `
+<div>
+  <div>
+    Hello
+  </div>
+</div>
+`;
