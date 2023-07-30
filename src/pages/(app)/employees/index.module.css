@@ -1,0 +1,43 @@
+.list {
+  display: grid;
+}
+
+.item {
+  padding-bottom: 8px;
+  border-bottom: 1px solid black;
+
+  & + & {
+    margin-top: 8px;
+  }
+}
+
+.link {
+  position: relative;
+
+  &:hover,
+  &:focus-visible {
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      border-radius: 10px;
+      opacity: 0.05;
+      background: currentcolor;
+      inset: 0;
+    }
+  }
+}
+
+.card {
+  display: grid;
+  gap: 0.5em;
+  padding: 16px;
+}
+
+.name {
+  font-size: 1.4em;
+}
+
+.birthday {
+  font-size: 0.8em;
+}
