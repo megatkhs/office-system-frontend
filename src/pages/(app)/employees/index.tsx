@@ -16,6 +16,11 @@ export default function EmployeesPage() {
   const employees = useLoaderData() as Employee[];
 
   return (
+    <>
+      <Helmet>
+        <title>従業員一覧 | 社内管理システム</title>
+      </Helmet>
+
     <ul>
       {employees.map((employee) => (
         <li key={employee.id}>
@@ -34,5 +39,6 @@ export default function EmployeesPage() {
         </li>
       ))}
     </ul>
+    </>
   );
 }

@@ -2,6 +2,7 @@ import { Routes } from "@generouted/react-router";
 import React from "react";
 import { createRoot } from "react-dom/client";
 import "@/styles/global.css";
+import { HelmetProvider } from "react-helmet-async";
 import { RecoilRoot } from "recoil";
 
 function main() {
@@ -12,11 +13,13 @@ function main() {
   }
 
   createRoot(rootElement).render(
-    <React.StrictMode>
-      <RecoilRoot>
-        <Routes />
-      </RecoilRoot>
-    </React.StrictMode>
+    <HelmetProvider>
+      <React.StrictMode>
+        <RecoilRoot>
+          <Routes />
+        </RecoilRoot>
+      </React.StrictMode>
+    </HelmetProvider>
   );
 }
 
