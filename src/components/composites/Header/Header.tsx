@@ -15,6 +15,10 @@ const menu = [
     to: "/employees",
     label: "従業員",
   },
+  {
+    to: "/departments",
+    label: "部署",
+  },
 ];
 
 export const Header = (props: HeaderProps) => {
