@@ -1,0 +1,19 @@
+.module {
+  display: inline-block;
+  width: var(--spinner-size, 1em);
+  height: var(--spinner-size, 1em);
+  animation: rolling 1s linear infinite;
+  border: var(--spinner-border-width, 0.2em) solid var(--spinner-color, currentColor);
+  border-radius: 50%;
+  border-top-color: transparent;
+}
+
+@keyframes rolling {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 /** 従業員一覧データ スキーマ */
-const employeeSchema = z.object({
+export const employeeSchema = z.object({
   /** 従業員ID */
   id: z.number().positive(),
   /** 名字 */
@@ -9,7 +9,7 @@ const employeeSchema = z.object({
   /** 名前 */
   first_name: z.string(),
   /** 誕生日 */
-  birthday: z.string().datetime(),
+  birthday: z.string().regex(/\d{4}-\d{2}-\d{2}/),
   /** 部署ID */
   department_id: z.number().positive(),
 });
@@ -26,14 +26,14 @@ const contactSchema = z.object({
 export type Contact = z.infer<typeof contactSchema>;
 
 /** 従業員詳細データ スキーマ */
-const employeeDetailSchema = z.object({
+export const employeeDetailSchema = z.object({
   id: z.number().positive(),
   first_name: z.string(),
   last_name: z.string(),
-  birthday: z.string().datetime(),
+  birthday: z.string().regex(/\d{4}-\d{2}-\d{2}/),
   department_id: z.number().positive(),
-  created_at: z.string().datetime(),
-  updated_at: z.string().datetime(),
+  created_at: z.string(),
+  updated_at: z.string(),
   contacts: z.array(contactSchema),
 });
 /** 従業員詳細データ */

@@ -1,0 +1,1 @@
+export { DepartmentLabel } from "./DepartmentLabel";
