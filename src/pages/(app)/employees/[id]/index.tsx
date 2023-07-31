@@ -5,6 +5,7 @@ import {
   useRouteError,
   isRouteErrorResponse,
   useNavigate,
+  Link,
 } from "react-router-dom";
 import { SuspenseDepartmentLabel } from "@/components/domains/DepartmentLabel/DepartmentLabel";
 import type { EmployeeDetail } from "@/models/employee";
@@ -52,36 +53,35 @@ export default function EmployeeDetailPage() {
         <button onClick={() => navigate(-1)}>戻る</button>
       </div>
 
-      <dl>
-        <div>
-          <dt>名前</dt>
-          <dd>
+      <article>
+        <hgroup>
+          <p>
+            <Link to={`/departments/${employee.department_id}`}>
+              <SuspenseDepartmentLabel id={employee.department_id} />
+            </Link>
+          </p>
+          <h1>
             {employee.last_name} {employee.first_name}
-          </dd>
-        </div>
+          </h1>
+        </hgroup>
 
-        <div>
-          <dt>誕生日</dt>
-          <dd>{dayjs(employee.birthday).format("YYYY年MM月DD日")}</dd>
-        </div>
+        <p>
+          <time dateTime={employee.birthday}>
+            {dayjs(employee.birthday).format("YYYY年MM月DD日")}
+          </time>
+          生まれ
+        </p>
 
-        <div>
-          <dt>部署ID</dt>
-          <dd>
-            <SuspenseDepartmentLabel id={employee.id} />
-          </dd>
-        </div>
+        <section>
+          <h2>登録日時</h2>
+          <p>{dayjs(employee.created_at).format("YYYY年MM月DD日 hh:mm")}</p>
+        </section>
 
-        <div>
-          <dt>作成日時</dt>
-          <dd>{dayjs(employee.created_at).format("YYYY年MM月DD日 hh:mm")}</dd>
-        </div>
-
-        <div>
-          <dt>更新日時</dt>
-          <dd>{dayjs(employee.updated_at).format("YYYY年MM月DD日 hh:mm")}</dd>
-        </div>
-      </dl>
+        <section>
+          <h2>更新日時</h2>
+          <p>{dayjs(employee.updated_at).format("YYYY年MM月DD日 hh:mm")}</p>
+        </section>
+      </article>
     </div>
   );
 }
